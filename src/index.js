@@ -4,20 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-function UserGreeting(props) {
-    return <h1>Welcome back!</h1>;
-}
-
-function GuestGreeting(props) {
-    return <h1>Please sign up.</h1>
-}
-
-function Greeting(props) {
-    const isLoggedIn = props.isLoggedIn;
-    return isLoggedIn ? <UserGreeting /> : <GuestGreeting />;   //  conditional rendering here
-}
-
-ReactDOM.render(<Greeting isLoggedIn={false} />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
