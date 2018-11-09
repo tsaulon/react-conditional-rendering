@@ -36,15 +36,15 @@ class LoginControl extends React.Component {
     super(props);
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
-    this.state = {isLoggedIn: false};
+    this.state = { isLoggedIn: false };
   }
 
   handleLoginClick() {
-    this.setState({isLoggedIn: true});
+    this.setState({ isLoggedIn: true });
   }
 
   handleLogoutClick() {
-    this.setState({isLoggedIn: false});
+    this.setState({ isLoggedIn: false });
   }
 
   render() {
@@ -66,8 +66,35 @@ class LoginControl extends React.Component {
   }
 }
 
-class App extends Component {
+class Mailbox extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      unreadMessages: this.props.unreadMessages
+    }
+  }
+
   render() {
+    return (
+      <div>
+        <h1>Hello!</h1>
+        { /* true && expression == expression*/
+          /* false && expression == false */
+          this.state.unreadMessages.length > 0 &&
+          <h2>
+            You have {this.state.unreadMessages.length} unread messages.
+        </h2>
+        }
+      </div>
+    );
+  }
+}
+
+class App extends Component {
+
+  render() {
+
     return (
       <div className="App">
         <header className="App-header">
@@ -76,6 +103,7 @@ class App extends Component {
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <LoginControl isLoggedIn={true} />
+          <Mailbox unreadMessages={['React', 'Re:React', 'Re:Re:React', 'Re:Re:Re:Re:React']} />
         </header>
       </div>
     );
