@@ -8,11 +8,16 @@ function UserGreeting(props) {
     return <h1>Welcome back!</h1>;
 }
 
-function GuesGreeting(props) {
+function GuestGreeting(props) {
     return <h1>Please sign up.</h1>
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+function Greeting(props) {
+    const isLoggedIn = props.isLoggedIn;
+    return isLoggedIn ? <UserGreeting /> : <GuestGreeting />;   //  conditional rendering here
+}
+
+ReactDOM.render(<Greeting isLoggedIn={false} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
