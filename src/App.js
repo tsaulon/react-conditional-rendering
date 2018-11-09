@@ -94,6 +94,11 @@ class Mailbox extends React.Component {
 class App extends Component {
 
   render() {
+    /* 
+      Note: Way to not render components based on condition
+      if(someCondition === true) 
+        return null;
+    */
 
     return (
       <div className="App">
